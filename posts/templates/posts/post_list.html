@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %} 
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-20 w-11/12 mx-auto">
+  {% for post in posts%}
+    <div class="flex h-52 border shadow-xl rounded-md overflow-hidden">
+      <figure class="w-4/12 shrink-0">
+        <img
+          src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
+          alt="Album" 
+          class="h-full w-full"
+          />
+        </figure>
+      <div class="w-8/12 px-5 py-4 flex flex-col gap-2">
+        <h2 class="line-clamp-2 card-title h-14">{{post.title|title}}</h2>
+        <p class="flex-1 line-clamp-3">{{post.body}}</p>
+        <div class="">
+          <button class="btn btn-sm">Read More</button>
+        </div>
+      </div>
+    </div>
+  {% endfor %} 
+  </div>
+
+{% endblock content %}
