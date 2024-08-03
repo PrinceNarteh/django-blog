@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.http import HttpResponseNotFound
+from django.shortcuts import render, get_object_or_404
 from .models import Post
 
 
@@ -11,12 +10,6 @@ def post_list(req):
 
 
 def post_details(req, id):
-    valid_id = False
-    for item in posts:
-        if item['id'] == id:
-            post = item
-            valid_id = True
-    if valid_id:
-        return render(req, 'posts/post_details.html', {'post': post, 'posts': posts})
-    else:
-        return HttpResponseNotFound('Post Not Found')
+    posts = Post.objects.all()
+    post = get_object_or_404(Post, id=id)
+    return render(req, 'posts/post_details.html', {'post': post, 'posts': posts})

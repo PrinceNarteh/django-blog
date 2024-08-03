@@ -14,7 +14,7 @@
         <h2 class="line-clamp-2 card-title h-14">{{post.title|title}}</h2>
         <p class="flex-1 line-clamp-3">{{post.content}}</p>
         <div class="">
-          <button class="btn btn-sm">Read More</button>
+          <a href="{% url "post_details" post.id %}" class="btn btn-sm">Read More</a>
         </div>
       </div>
     </div>
